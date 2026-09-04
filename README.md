@@ -238,28 +238,25 @@ The experiment demonstrates that rank is a capacity/efficiency trade-off rather 
 
 During LoRA training:
 
-$$
+```math
 W = W_0 + \frac{\alpha}{r}BA
-$$
+```
 
 For deployment, the update can be merged directly into the original weight:
 
-$$
-W_{\text{merged}}
-=
-W_0 + \frac{\alpha}{r}BA
-$$
+```math
+W_{\mathrm{merged}} = W_0 + \frac{\alpha}{r}BA
+```
 
-The repository implements this transformation in:
-
-```text
-src/merge.py
+The repository implements this transformation in `src/merge.py`.
 
 After merging, the separate LoRA computation is no longer required during the forward pass.
 
 The automated tests verify that the merged layer produces numerically equivalent outputs to the unmerged LoRA layer within floating-point tolerance.
 
 ---
+
+## Inference Benchmark
 
 ## Inference Benchmark
 
