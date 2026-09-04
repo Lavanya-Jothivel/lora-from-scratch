@@ -256,7 +256,6 @@ The automated tests verify that the merged layer produces numerically equivalent
 
 ---
 
-## Inference Benchmark
 
 ## Inference Benchmark
 
