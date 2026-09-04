@@ -408,7 +408,7 @@ The DistilBERT integration tests use a tiny randomly initialized model configura
 Clone the repository:
 
 ```bash
-git clone <YOUR-REPOSITORY-URL>
+git clone https://github.com/Lavanya-Jothivel/lora-from-scratch.git
 cd lora-from-scratch
 ```
 
