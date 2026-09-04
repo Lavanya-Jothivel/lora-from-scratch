@@ -25,46 +25,47 @@ This project goes beyond applying an existing PEFT library: it implements the co
 - **7/7 unit tests passing**
 
 ---
-
 ## Core Idea
 
 For a pretrained weight matrix:
 
-\[
+$$
 W_0 \in \mathbb{R}^{d \times k}
-\]
+$$
 
-LoRA freezes \(W_0\) and represents the trainable update using two low-rank matrices:
+LoRA freezes $W_0$ and represents the trainable update using two low-rank matrices:
 
-\[
+$$
 \Delta W = BA
-\]
+$$
 
 where:
 
-\[
+$$
 A \in \mathbb{R}^{r \times k}
-\]
+$$
 
 and:
 
-\[
+$$
 B \in \mathbb{R}^{d \times r}
-\]
+$$
 
 with:
 
-\[
+$$
 r \ll \min(d,k)
-\]
+$$
 
 The forward pass becomes:
 
-\[
+$$
 h = W_0x + \frac{\alpha}{r}BAx
-\]
+$$
 
 Only the low-rank matrices are optimized while the original pretrained weight remains frozen.
+
+
 
 ---
 
@@ -233,30 +234,26 @@ Increasing rank also increases the number of trainable parameters:
 The experiment demonstrates that rank is a capacity/efficiency trade-off rather than simply a parameter that should always be maximized.
 
 ---
-
 ## LoRA Weight Merging
 
 During LoRA training:
 
-\[
+$$
 W = W_0 + \frac{\alpha}{r}BA
-\]
+$$
 
 For deployment, the update can be merged directly into the original weight:
 
-\[
+$$
 W_{\text{merged}}
 =
-W_0
-+
-\frac{\alpha}{r}BA
-\]
+W_0 + \frac{\alpha}{r}BA
+$$
 
 The repository implements this transformation in:
 
 ```text
 src/merge.py
-```
 
 After merging, the separate LoRA computation is no longer required during the forward pass.
 
