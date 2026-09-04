@@ -1,0 +1,15 @@
+Metric,Value
+Best LoRA Validation Accuracy,0.8853211009174312
+Best Full FT Validation Accuracy,0.8784403669724771
+LoRA Trainable Parameters,739586.0
+Full FT Trainable Parameters,66955010.0
+LoRA Adapter Parameters Only,147456.0
+Parameter Reduction (%),99.77976853412464
+LoRA Training Time (sec),180.7761745452881
+Full FT Training Time (sec),249.243257522583
+LoRA Adapter Size (MB),2.830904960632324
+Full Model Size (MB),255.45441150665283
+Storage Reduction (%),98.89181598237595
+Unmerged LoRA Latency (ms/batch),103.91508705999968
+Merged LoRA Latency (ms/batch),100.4526174800003
+Best Rank From Ablation,16.0
